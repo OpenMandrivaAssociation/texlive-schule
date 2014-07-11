@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-schule
 Version:	20140620
-Release:	1
+Release:	2
 Summary:	TeXLive schule package
 Group:		Publishing
 URL:		http://tug.org/texlive
