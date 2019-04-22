@@ -1,6 +1,6 @@
 Name:		texlive-schule
-Version:	0.6
-Release:	2
+Version:	0.8.1
+Release:	1
 Summary:	TeXLive schule package
 Group:		Publishing
 URL:		http://tug.org/texlive
