@@ -1,5 +1,5 @@
 Name:		texlive-schule
-Version:	68483
+Version:	70846
 Release:	1
 Summary:	TeXLive schule package
 Group:		Publishing
