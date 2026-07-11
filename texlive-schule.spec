@@ -1,39 +1,28 @@
-Name:		texlive-schule
-Version:	70846
-Release:	1
-Summary:	TeXLive schule package
+%global tl_name schule
+%global tl_revision 77551
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.11.0
+Release:	%{tl_revision}.1
+Summary:	Support for teachers at German schools
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/schule.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/schule.doc.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/schule
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/schule.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/schule.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive schule package.
+The 'schule' bundle was built to provide packages and commands that
+could be useful for documents in German schools. At the moment its main
+focus lies on documents for informatics as a school subject. An
+extension for physics is currently in progress. Extensions for other
+subjects are welcome. For the time being, the whole package splits up
+into individual packages for informatics (including syntax diagrams,
+Nassi-Shneiderman diagrams, sequence diagrams, object diagrams, and
+class diagrams) as well as classes for written exams (tests, quizzes,
+teaching observations, information sheets, worksheets, and answer keys).
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/schule
-%doc %{_texmfdistdir}/doc/latex/schule
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
